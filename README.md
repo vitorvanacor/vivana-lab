@@ -2,7 +2,7 @@
 
 I've created this repo to make experiments - that's why it's called "lab" (**vivana** is just a wordplay with my name).
 
-The idea is to simulate the development of a product starting from nothing and making very small increments on each iteration. The development process will be documented on posts in the `blog/` folder.
+The idea is to simulate the development of a product starting from nothing and making very small increments on each iteration. The development process will be documented on posts in the `src/routes/blog/` folder.
 
 The "product" being developed will start as a simple website to display these posts describing the development process - *very meta*. The end-product remains uncertain.
 
