@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+
+		
+
+		<link rel="modulepreload" href="/_app/start-e0247db9.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-af0f2ef7.js">
+		<link rel="modulepreload" href="/_app/layout.svelte-f368aa64.js">
+		<link rel="modulepreload" href="/_app/pages/blog/deploying-to-gh-pages.md-80f459dc.js">
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+
+		<script type="module">
+			import { start } from "/_app/start-e0247db9.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/layout.svelte-f368aa64.js"),
+						import("/_app/pages/blog/deploying-to-gh-pages.md-80f459dc.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/blog/deploying-to-gh-pages",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <div id="svelte">
+
+
+<h1>Deploying a static SvelteKit app to GitHub Pages</h1>
+<ol><li>Install SvelteKit’s <a href="https://github.com/sveltejs/kit/tree/master/packages/adapter-static" rel="nofollow">static adapter</a> with <code>npm i -D @sveltejs/adapter-static@next</code></li>
+<li>Add the adapter to <code>svelte.config.js</code></li>
+<li>Update <code>config.kit.paths.base</code> to match the repo name, <code>vivana-lab</code>, since the site will be served from https://[my-username].github.io/[my-repo-name] rather than from the root.</li></ol>
+<p>Here is how <code>svelte.config.js</code> ends up:</p>
+<pre class="language-js"><!-- HTML_TAG_START --><code class="language-js"><span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">"svelte-preprocess"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> adapter <span class="token keyword">from</span> <span class="token string">'@sveltejs/adapter-static'</span><span class="token punctuation">;</span>
+
+<span class="token comment">/** @type &#123;import('@sveltejs/kit').Config&#125; */</span>
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Consult https://github.com/sveltejs/svelte-preprocess</span>
+  <span class="token comment">// for more information about preprocessors</span>
+  preprocess<span class="token operator">:</span> <span class="token function">preprocess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  kit<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// hydrate the &lt;div id="svelte"> element in src/app.html</span>
+    target<span class="token operator">:</span> <span class="token string">"#svelte"</span><span class="token punctuation">,</span>
+    adapter<span class="token operator">:</span> <span class="token function">adapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<ol start="4"><li>Create an empty file <code>.nojekyll</code> in the <code>static/</code> folder.</li>
+<li>Install the gh-pages package with <code>npm install -D gh-pages</code></li>
+<li>Add a deploy script to <code>package.json</code> (<strong>Note:</strong> The <code>--dotfiles true</code> option is added because otherwise the <code>.nojekyll</code> file is ignored):</li></ol>
+<pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  ...
+  <span class="token property">"predeploy"</span><span class="token operator">:</span> <span class="token string">"npm run build"</span><span class="token punctuation">,</span>
+  <span class="token property">"deploy"</span><span class="token operator">:</span> <span class="token string">"gh-pages --dist build --dotfiles true"</span><span class="token punctuation">,</span>
+  ...
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<ol start="7"><li>Make sure the repository is public</li>
+<li>Run <code>npm run deploy</code></li></ol>
+<p>Done! The default SvelteKit’s page is live on <a href="https://vitorvanacor.github.io/vivana-lab" rel="nofollow">https://vitorvanacor.github.io/vivana-lab</a></p>
+
+
+
+			
+		</div>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+
+		
+
+		<link rel="modulepreload" href="/_app/start-e0247db9.js">
+		<link rel="modulepreload" href="/_app/chunks/vendor-af0f2ef7.js">
+		<link rel="modulepreload" href="/_app/layout.svelte-f368aa64.js">
+		<link rel="modulepreload" href="/_app/pages/blog/starting-with-sveltekit.md-ccc938cd.js">
+		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
+
+		<script type="module">
+			import { start } from "/_app/start-e0247db9.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"","assets":""},
+				session: {},
+				host: location.host,
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/_app/layout.svelte-f368aa64.js"),
+						import("/_app/pages/blog/starting-with-sveltekit.md-ccc938cd.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/blog/starting-with-sveltekit",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <div id="svelte">
+
+
+<h1>Starting with SvelteKit</h1>
+<p>I’ve created this repo to make experiments - that’s why it’s called “lab” (<strong>vivana</strong> is just a wordplay with my name).</p>
+<p>The idea is to simulate the development of a product starting from nothing and making very small increments on each iteration. The development process will be documented on posts in the <code>blog/</code> folder.</p>
+<p>The “product” being developed will start as a simple website to display these posts describing the development process - <em>very meta</em>. The end-product remains uncertain.</p>
+<p>Let’s begin!</p>
+<h2>SvelteKit</h2>
+<p>I wanna learn Svelte so I’m gonna use <a href="https://kit.svelte.dev/docs" rel="nofollow">SvelteKit</a>. I went with the latest version of the time, which was <code>1.0.0-next.179</code>.</p>
+<p>Following the Getting Started guide, I ran the <code>npm init svelte@next</code> command and I was given some options:</p>
+<ul><li>Skeleton Project or Demo Project?<ul><li>Demo Project starts with some features, so it will be useful for reference; but I went with Skeleton Project to start from scratch.</li></ul></li>
+<li>Add TypeScript? Yes.</li>
+<li>Add Prettier? Yes.</li>
+<li>Add ESLint? Yes.</li></ul>
+<p>The following file structure was created:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">.
+├── README.md
+├── package.json
+├── src
+│   ├── app.html
+│   ├── global.d.ts
+│   └── routes
+│       └── index.svelte
+├── static
+│   └── favicon.ico
+├── svelte.config.js
+├── tsconfig.json
+├── .eslintrc.cjs
+├── .prettierrc</code><!-- HTML_TAG_END --></pre>
+<p>That’s the end of this post. In the next one, I will deploy it as a static website.</p>
+<p>I’ll leave here the contents of the files created by <code>npm init svelte@next</code>:</p>
+<h3><code>README.md</code></h3>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">## Developing
+
+This project uses SvelteKit.
+Install dependencies with &#96;npm install&#96; (or &#96;pnpm install&#96; or &#96;yarn&#96;) and start a development server:
+
+&#96;&#96;&#96;bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+&#96;&#96;&#96;
+
+## Building
+
+Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+
+&#96;&#96;&#96;bash
+npm run build
+&#96;&#96;&#96;
+
+&gt; You can preview the built app with &#96;npm run preview&#96;, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.</code><!-- HTML_TAG_END --></pre>
+<h3><code>package.json</code></h3>
+<pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"vivana-lab"</span><span class="token punctuation">,</span>
+  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.1"</span><span class="token punctuation">,</span>
+  <span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"dev"</span><span class="token operator">:</span> <span class="token string">"svelte-kit dev"</span><span class="token punctuation">,</span>
+    <span class="token property">"build"</span><span class="token operator">:</span> <span class="token string">"svelte-kit build"</span><span class="token punctuation">,</span>
+    <span class="token property">"preview"</span><span class="token operator">:</span> <span class="token string">"svelte-kit preview"</span><span class="token punctuation">,</span>
+    <span class="token property">"check"</span><span class="token operator">:</span> <span class="token string">"svelte-check --tsconfig ./tsconfig.json"</span><span class="token punctuation">,</span>
+    <span class="token property">"check:watch"</span><span class="token operator">:</span> <span class="token string">"svelte-check --tsconfig ./tsconfig.json --watch"</span><span class="token punctuation">,</span>
+    <span class="token property">"lint"</span><span class="token operator">:</span> <span class="token string">"prettier --ignore-path .gitignore --check --plugin-search-dir=. . &amp;&amp; eslint --ignore-path .gitignore ."</span><span class="token punctuation">,</span>
+    <span class="token property">"format"</span><span class="token operator">:</span> <span class="token string">"prettier --ignore-path .gitignore --write --plugin-search-dir=. ."</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"devDependencies"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"@sveltejs/kit"</span><span class="token operator">:</span> <span class="token string">"next"</span><span class="token punctuation">,</span>
+    <span class="token property">"@typescript-eslint/eslint-plugin"</span><span class="token operator">:</span> <span class="token string">"^4.31.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"@typescript-eslint/parser"</span><span class="token operator">:</span> <span class="token string">"^4.31.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"eslint"</span><span class="token operator">:</span> <span class="token string">"^7.32.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"eslint-config-prettier"</span><span class="token operator">:</span> <span class="token string">"^8.3.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"eslint-plugin-svelte3"</span><span class="token operator">:</span> <span class="token string">"^3.2.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier"</span><span class="token operator">:</span> <span class="token string">"^2.4.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"prettier-plugin-svelte"</span><span class="token operator">:</span> <span class="token string">"^2.4.0"</span><span class="token punctuation">,</span>
+    <span class="token property">"svelte"</span><span class="token operator">:</span> <span class="token string">"^3.42.6"</span><span class="token punctuation">,</span>
+    <span class="token property">"svelte-check"</span><span class="token operator">:</span> <span class="token string">"^2.2.6"</span><span class="token punctuation">,</span>
+    <span class="token property">"svelte-preprocess"</span><span class="token operator">:</span> <span class="token string">"^4.9.4"</span><span class="token punctuation">,</span>
+    <span class="token property">"tslib"</span><span class="token operator">:</span> <span class="token string">"^2.3.1"</span><span class="token punctuation">,</span>
+    <span class="token property">"typescript"</span><span class="token operator">:</span> <span class="token string">"^4.4.3"</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"module"</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<h3><code>app.html</code></h3>
+<pre class="language-html"><!-- HTML_TAG_START --><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/favicon.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    %svelte.head%
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>svelte<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>%svelte.body%<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code><!-- HTML_TAG_END --></pre>
+<h3><code>global.d.ts</code></h3>
+<pre class="language-ts"><!-- HTML_TAG_START --><code class="language-ts"><span class="token comment">/// &lt;reference types="@sveltejs/kit" /></span></code><!-- HTML_TAG_END --></pre>
+<h3><code>index.svelte</code></h3>
+<pre class="language-html"><!-- HTML_TAG_START --><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Welcome to SvelteKit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
+  Visit <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://kit.svelte.dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>kit.svelte.dev<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> to read the documentation
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code><!-- HTML_TAG_END --></pre>
+<h3><code>svelte.config.js</code></h3>
+<pre class="language-js"><!-- HTML_TAG_START --><code class="language-js"><span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">"svelte-preprocess"</span><span class="token punctuation">;</span>
+
+<span class="token comment">/** @type &#123;import('@sveltejs/kit').Config&#125; */</span>
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// Consult https://github.com/sveltejs/svelte-preprocess</span>
+  <span class="token comment">// for more information about preprocessors</span>
+  preprocess<span class="token operator">:</span> <span class="token function">preprocess</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+
+  kit<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// hydrate the &lt;div id="svelte"> element in src/app.html</span>
+    target<span class="token operator">:</span> <span class="token string">"#svelte"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<h3><code>tsconfig.json</code></h3>
+<pre class="language-json"><!-- HTML_TAG_START --><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"compilerOptions"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"moduleResolution"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+    <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"es2020"</span><span class="token punctuation">,</span>
+    <span class="token property">"lib"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"es2020"</span><span class="token punctuation">,</span> <span class="token string">"DOM"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">"target"</span><span class="token operator">:</span> <span class="token string">"es2019"</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+			svelte-preprocess cannot figure out whether you have a value or a type, so tell TypeScript
+			to enforce using &#96;import type&#96; instead of &#96;import&#96; for Types.
+			*/</span>
+    <span class="token property">"importsNotUsedAsValues"</span><span class="token operator">:</span> <span class="token string">"error"</span><span class="token punctuation">,</span>
+    <span class="token property">"isolatedModules"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"resolveJsonModule"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+			To have warnings/errors of the Svelte compiler at the correct position,
+			enable source maps by default.
+			*/</span>
+    <span class="token property">"sourceMap"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"esModuleInterop"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"skipLibCheck"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"forceConsistentCasingInFileNames"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"baseUrl"</span><span class="token operator">:</span> <span class="token string">"."</span><span class="token punctuation">,</span>
+    <span class="token property">"allowJs"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"checkJs"</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">"paths"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"$lib"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"src/lib"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"$lib/*"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"src/lib/*"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token property">"include"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"src/**/*.d.ts"</span><span class="token punctuation">,</span> <span class="token string">"src/**/*.js"</span><span class="token punctuation">,</span> <span class="token string">"src/**/*.ts"</span><span class="token punctuation">,</span> <span class="token string">"src/**/*.svelte"</span><span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+
+
+
+			
+		</div>
+  </body>
+</html>
