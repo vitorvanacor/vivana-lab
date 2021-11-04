@@ -1,4 +1,8 @@
-# Deploying a static SvelteKit app to GitHub Pages
+---
+title: Deploying a static SvelteKit app to GitHub Pages
+---
+
+# {title}
 
 1. Install SvelteKit's [static adapter](https://github.com/sveltejs/kit/tree/master/packages/adapter-static) with `npm i --save-dev @sveltejs/adapter-static@next`
 2. Add the adapter to `svelte.config.js`

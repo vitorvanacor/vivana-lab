@@ -1,4 +1,8 @@
-# Starting with SvelteKit
+---
+title: Starting with SvelteKit
+---
+
+# {title}
 
 I've created this repo to make experiments - that's why it's called "lab" (**vivana** is just a wordplay with my name).
 

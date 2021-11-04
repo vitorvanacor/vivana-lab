@@ -1,4 +1,8 @@
-# Add Mdsvex
+---
+title: Add Mdsvex
+---
+
+# {title}
 
 Mdsvex is a Markdown preprocessor for Svelte. It takes documents written in a mix of Markdown and Svelte and outputs Svelte components.
 
