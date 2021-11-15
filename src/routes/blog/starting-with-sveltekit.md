@@ -8,7 +8,7 @@ I've created this repo to make experiments - that's why it's called "lab" (**viv
 
 The idea is to simulate the development of a product starting from nothing and making very small increments on each iteration. The development process will be documented on posts in the `blog/` folder.
 
-The "product" being developed will start as a simple website to display these posts describing the development process - *very meta*. The end-product remains uncertain.
+The "product" being developed will start as a simple website to display these posts describing the development process - _very meta_. The end-product remains uncertain.
 
 Let's begin!
 
@@ -17,6 +17,7 @@ Let's begin!
 I wanna learn Svelte so I'm gonna use [SvelteKit](https://kit.svelte.dev/docs). I went with the latest version of the time, which was `1.0.0-next.179`.
 
 Following the Getting Started guide, I ran the `npm init svelte@next` command and I was given some options:
+
 - Skeleton Project or Demo Project?
   - Demo Project starts with some features, so it will be useful for reference; but I went with Skeleton Project to start from scratch.
 - Add TypeScript? Yes.
@@ -24,6 +25,7 @@ Following the Getting Started guide, I ran the `npm init svelte@next` command an
 - Add ESLint? Yes.
 
 The following file structure was created:
+
 ```
 .
 ├── README.md
@@ -46,7 +48,8 @@ That's the end of this post. In the next one, I will deploy it as a static websi
 I'll leave here the contents of the files created by `npm init svelte@next`:
 
 ### `README.md`
-`````
+
+````
 ## Developing
 
 This project uses SvelteKit.
@@ -68,7 +71,7 @@ npm run build
 ```
 
 > You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
-`````
+````
 
 ### `package.json`
 
@@ -105,6 +108,7 @@ npm run build
 ```
 
 ### `app.html`
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -121,21 +125,25 @@ npm run build
 ```
 
 ### `global.d.ts`
+
 ```ts
 /// <reference types="@sveltejs/kit" />
 ```
 
 ### `index.svelte`
+
 ```html
 <h1>Welcome to SvelteKit</h1>
 <p>
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
+  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the
+  documentation
 </p>
 ```
 
 ### `svelte.config.js`
+
 ```js
-import preprocess from "svelte-preprocess";
+import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -145,7 +153,7 @@ const config = {
 
   kit: {
     // hydrate the <div id="svelte"> element in src/app.html
-    target: "#svelte",
+    target: '#svelte',
   },
 };
 
@@ -153,6 +161,7 @@ export default config;
 ```
 
 ### `tsconfig.json`
+
 ```json
 {
   "compilerOptions": {

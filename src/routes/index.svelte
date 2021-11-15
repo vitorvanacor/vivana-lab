@@ -1,5 +1,5 @@
 <script>
-  import Blog from "./blog/index.svelte";
+  import Blog from './blog/index.svelte';
 </script>
 
 <Blog />

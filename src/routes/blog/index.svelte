@@ -1,10 +1,10 @@
 <script>
-  import { base as basePath } from "$app/paths";
-  const metadataByPath = import.meta.globEager("./*md");
+  import { base as basePath } from '$app/paths';
+  const metadataByPath = import.meta.globEager('./*md');
   const posts = Object.entries(metadataByPath).map(([path, metadata]) => {
-    path = path.replace(".md", "");
+    path = path.replace('.md', '');
     path = `${basePath}/blog/${path}`;
-    metadata = metadata["metadata"];
+    metadata = metadata['metadata'];
     return { path, metadata };
   });
 </script>

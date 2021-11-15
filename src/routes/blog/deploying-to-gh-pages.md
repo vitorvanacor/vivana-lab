@@ -9,8 +9,9 @@ title: Deploying a static SvelteKit app to GitHub Pages
 3. Update `config.kit.paths.base` to match the repo name, `vivana-lab`, since the site will be served from https://[my-username].github.io/[my-repo-name] rather than from the root.
 
 Here is how `svelte.config.js` ends up:
+
 ```js
-import preprocess from "svelte-preprocess";
+import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
 
 const dev = process.env.NODE_ENV === 'development';
@@ -23,7 +24,7 @@ const config = {
 
   kit: {
     // hydrate the <div id="svelte"> element in src/app.html
-    target: "#svelte",
+    target: '#svelte',
     adapter: adapter(),
     paths: {
       base: dev ? '' : '/vivana-lab',
