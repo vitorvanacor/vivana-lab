@@ -1,4 +1,4 @@
-import{S as gt,i as yt,s as bt,e as o,t as a,k as d,c as l,a as p,g as n,d as s,n as u,b,f as c,F as e,J as Xe}from"./vendor-ef498746.js";function jt(vt){let E,oe,X,f,g,le,j,pe,re,K,ce,ie,L,de,M,ue,ke,h,fe,N,ve,he,P,me,_e,Y,y,Ee,R,ge,ye,Z,w,ht=`<code class="language-js"><span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">"svelte-preprocess"</span><span class="token punctuation">;</span>
+import{S as gt,i as yt,s as bt,e as o,t as a,k as d,c as l,a as p,g as n,d as s,n as u,b,f as c,F as e,J as Xe}from"./vendor-c400893e.js";function jt(vt){let E,oe,X,f,g,le,j,pe,re,K,ce,ie,L,de,M,ue,ke,h,fe,N,ve,he,P,me,_e,Y,y,Ee,R,ge,ye,Z,w,ht=`<code class="language-js"><span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">'svelte-preprocess'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> adapter <span class="token keyword">from</span> <span class="token string">'@sveltejs/adapter-static'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> dev <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'development'</span><span class="token punctuation">;</span>
@@ -11,7 +11,7 @@ import{S as gt,i as yt,s as bt,e as o,t as a,k as d,c as l,a as p,g as n,d as s,
 
   kit<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// hydrate the &lt;div id="svelte"> element in src/app.html</span>
-    target<span class="token operator">:</span> <span class="token string">"#svelte"</span><span class="token punctuation">,</span>
+    target<span class="token operator">:</span> <span class="token string">'#svelte'</span><span class="token punctuation">,</span>
     adapter<span class="token operator">:</span> <span class="token function">adapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     paths<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
       base<span class="token operator">:</span> dev <span class="token operator">?</span> <span class="token string">''</span> <span class="token operator">:</span> <span class="token string">'/vivana-lab'</span><span class="token punctuation">,</span>

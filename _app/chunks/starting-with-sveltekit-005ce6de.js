@@ -1,4 +1,4 @@
-import{S as ba,i as ja,s as Ta,e as p,t as c,k as i,c as o,a as l,g as r,d as n,n as u,b as v,f as e,F as a,J as In}from"./vendor-ef498746.js";function Sa(oa){let d,Ys,cs,m,Ks,G,Fs,Js,rs,h,Us,N,Gs,Ns,is,y,Bs,B,Vs,$s,us,L,zs,ks,C,Ws,fs,f,Qs,_,Xs,Zs,V,sn,nn,vs,g,an,$,tn,en,ds,k,M,pn,z,W,on,ln,Q,cn,rn,X,un,kn,Z,fn,ms,H,vn,hs,b,la=`<code class="language-undefined">.
+import{S as ba,i as ja,s as Ta,e as p,t as c,k as i,c as o,a as l,g as r,d as n,n as u,b as v,f as e,F as a,J as In}from"./vendor-c400893e.js";function Sa(oa){let d,Ys,cs,m,Ks,G,Fs,Js,rs,h,Us,N,Gs,Ns,is,y,Bs,B,Vs,$s,us,L,zs,ks,C,Ws,fs,f,Qs,_,Xs,Zs,V,sn,nn,vs,g,an,$,tn,en,ds,k,M,pn,z,W,on,ln,Q,cn,rn,X,un,kn,Z,fn,ms,H,vn,hs,b,la=`<code class="language-undefined">.
 \u251C\u2500\u2500 README.md
 \u251C\u2500\u2500 package.json
 \u251C\u2500\u2500 src
@@ -72,8 +72,9 @@ npm run build
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code>`,Ss,Y,es,_n,Is,I,ua='<code class="language-ts"><span class="token comment">/// &lt;reference types="@sveltejs/kit" /></span></code>',Ps,K,ps,bn,Ds,P,ka=`<code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>Welcome to SvelteKit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>
-  Visit <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://kit.svelte.dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>kit.svelte.dev<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> to read the documentation
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code>`,xs,F,os,jn,Ls,D,fa=`<code class="language-js"><span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">"svelte-preprocess"</span><span class="token punctuation">;</span>
+  Visit <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://kit.svelte.dev<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>kit.svelte.dev<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span> to read the
+  documentation
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code>`,xs,F,os,jn,Ls,D,fa=`<code class="language-js"><span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">'svelte-preprocess'</span><span class="token punctuation">;</span>
 
 <span class="token comment">/** @type &#123;import('@sveltejs/kit').Config&#125; */</span>
 <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -83,7 +84,7 @@ npm run build
 
   kit<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// hydrate the &lt;div id="svelte"> element in src/app.html</span>
-    target<span class="token operator">:</span> <span class="token string">"#svelte"</span><span class="token punctuation">,</span>
+    target<span class="token operator">:</span> <span class="token string">'#svelte'</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 

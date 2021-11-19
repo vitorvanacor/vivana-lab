@@ -7,20 +7,21 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css"
     />
-    <link rel="icon" href="/vivana-lab/favicon.png" data-svelte="svelte-d4n9qd">
+    <link rel="icon" href="/vivana-lab/favicon.png" data-svelte="svelte-1gte0me">
 
 		
 
-		<link rel="modulepreload" href="/vivana-lab/_app/start-cfd318bc.js">
-		<link rel="modulepreload" href="/vivana-lab/_app/chunks/vendor-ef498746.js">
+		<link rel="modulepreload" href="/vivana-lab/_app/start-6394cde4.js">
+		<link rel="modulepreload" href="/vivana-lab/_app/chunks/vendor-c400893e.js">
+		<link rel="modulepreload" href="/vivana-lab/_app/chunks/preload-helper-8e5b6289.js">
 		<link rel="modulepreload" href="/vivana-lab/_app/chunks/paths-28a87002.js">
-		<link rel="modulepreload" href="/vivana-lab/_app/pages/__layout.svelte-0f8c694d.js">
-		<link rel="modulepreload" href="/vivana-lab/_app/pages/blog/add-mdsvex.md-ac200332.js">
-		<link rel="modulepreload" href="/vivana-lab/_app/chunks/add-mdsvex-1e10a457.js">
+		<link rel="modulepreload" href="/vivana-lab/_app/pages/__layout.svelte-c172d24e.js">
+		<link rel="modulepreload" href="/vivana-lab/_app/pages/blog/add-mdsvex.md-3158af89.js">
+		<link rel="modulepreload" href="/vivana-lab/_app/chunks/add-mdsvex-9d62f979.js">
 		<link rel="stylesheet" href="/vivana-lab/_app/assets/start-61d1577b.css">
 
 		<script type="module">
-			import { start } from "/vivana-lab/_app/start-cfd318bc.js";
+			import { start } from "/vivana-lab/_app/start-6394cde4.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/vivana-lab","assets":""},
@@ -33,8 +34,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/vivana-lab/_app/pages/__layout.svelte-0f8c694d.js"),
-						import("/vivana-lab/_app/pages/blog/add-mdsvex.md-ac200332.js")
+						import("/vivana-lab/_app/pages/__layout.svelte-c172d24e.js"),
+						import("/vivana-lab/_app/pages/blog/add-mdsvex.md-3158af89.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -54,12 +55,12 @@
 
 <h1>Add Mdsvex</h1>
 <p>Mdsvex is a Markdown preprocessor for Svelte. It takes documents written in a mix of Markdown and Svelte and outputs Svelte components.</p>
-<ol><li><p>Add <code>mdsvex</code> to the project with <code>npx svelte-add@latest mdsvex</code>. It creates a <code>mdsvex.config.js</code> file with this content:</p>
+<ol><li>Add <code>mdsvex</code> to the project with <code>npx svelte-add@latest mdsvex</code>. It creates a <code>mdsvex.config.js</code> file with this content:</li></ol>
 <pre class="language-js"><!-- HTML_TAG_START --><code class="language-js"><span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".svelte.md"</span><span class="token punctuation">,</span> <span class="token string">".md"</span><span class="token punctuation">,</span> <span class="token string">".svx"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.svelte.md'</span><span class="token punctuation">,</span> <span class="token string">'.md'</span><span class="token punctuation">,</span> <span class="token string">'.svx'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 
   smartypants<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
-    dashes<span class="token operator">:</span> <span class="token string">"oldschool"</span><span class="token punctuation">,</span>
+    dashes<span class="token operator">:</span> <span class="token string">'oldschool'</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 
   remarkPlugins<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -68,14 +69,14 @@
 
 <span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
 <p>The command also adds the preprocessor to <code>svelte.config.js</code>:</p>
-<pre class="language-js"><!-- HTML_TAG_START --><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> mdsvex <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"mdsvex"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> mdsvexConfig <span class="token keyword">from</span> <span class="token string">"./mdsvex.config.js"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">"svelte-preprocess"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> adapter <span class="token keyword">from</span> <span class="token string">"@sveltejs/adapter-static"</span><span class="token punctuation">;</span>
+<pre class="language-js"><!-- HTML_TAG_START --><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> mdsvex <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'mdsvex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> mdsvexConfig <span class="token keyword">from</span> <span class="token string">'./mdsvex.config.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> preprocess <span class="token keyword">from</span> <span class="token string">'svelte-preprocess'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> adapter <span class="token keyword">from</span> <span class="token string">'@sveltejs/adapter-static'</span><span class="token punctuation">;</span>
 
 <span class="token comment">/** @type &#123;import('@sveltejs/kit').Config&#125; */</span>
 <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">".svelte"</span><span class="token punctuation">,</span> <span class="token operator">...</span>mdsvexConfig<span class="token punctuation">.</span>extensions<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  extensions<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'.svelte'</span><span class="token punctuation">,</span> <span class="token operator">...</span>mdsvexConfig<span class="token punctuation">.</span>extensions<span class="token punctuation">]</span><span class="token punctuation">,</span>
 
   <span class="token comment">// Consult https://github.com/sveltejs/svelte-preprocess</span>
   <span class="token comment">// for more information about preprocessors</span>
@@ -83,13 +84,13 @@
 
   kit<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// hydrate the &lt;div id="svelte"> element in src/app.html</span>
-    target<span class="token operator">:</span> <span class="token string">"#svelte"</span><span class="token punctuation">,</span>
+    target<span class="token operator">:</span> <span class="token string">'#svelte'</span><span class="token punctuation">,</span>
     adapter<span class="token operator">:</span> <span class="token function">adapter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 
-<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre></li>
-<li><p>Run <code>npm install</code></p></li></ol>
+<span class="token keyword">export</span> <span class="token keyword">default</span> config<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<ol start="2"><li>Run <code>npm install</code></li></ol>
 <p>Now, if you have a blog post in <code>src/routes/blog/a-post.md</code> (or <code>.svx</code>), you will be able to access the generated version in <code>https://[your-site]/blog/a-post</code></p>
 
 
