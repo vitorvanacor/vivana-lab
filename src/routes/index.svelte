@@ -3,3 +3,4 @@
 </script>
 
 <Blog />
+<ul><li><a href="/game">Game</a></li></ul>
