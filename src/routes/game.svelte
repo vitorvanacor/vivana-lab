@@ -1,16 +1,23 @@
 <script>
   import { onMount } from 'svelte';
+  import { browser } from '$app/env';
 
-  let gameComponent;
-  const inBrowser = Boolean(typeof navigator);
+  let Game;
+  let promise;
 
-  if (inBrowser) {
+  if (browser) {
     onMount(async () => {
-      gameComponent = (await import('../game/Game.svelte')).default;
+      promise = import('$lib/game/GameComponent.svelte').then((mod) => {
+        Game = mod.default;
+      });
     });
   }
 </script>
 
-{#if gameComponent}
-  <svelte:component this={gameComponent} />
-{/if}
+{#await promise}
+  Loading Game...
+{:then}
+  <svelte:component this={Game} />
+{:catch err}
+  Failed to load game: {`${err}`}
+{/await}

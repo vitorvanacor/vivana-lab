@@ -1,10 +1,4 @@
-import Phaser from 'phaser';
-
-type Vector2 = Phaser.Math.Vector2;
-type Body = Phaser.Physics.Arcade.Body;
-
-// eslint-disable-next-line
-var navigator = {};
+import Phaser, { Physics } from 'phaser';
 
 const BLUE = 0x0000ff;
 
@@ -13,7 +7,7 @@ type Keys = {
 };
 
 export class Player extends Phaser.GameObjects.Rectangle {
-  public body: Body;
+  public bod: Physics.Arcade.Body;
 
   constructor(
     scene: Phaser.Scene,
@@ -26,6 +20,7 @@ export class Player extends Phaser.GameObjects.Rectangle {
     super(scene, x, y, 32, 32, BLUE);
     scene.add.existing(this);
     scene.physics.add.existing(this);
+    this.bod = this.body as Physics.Arcade.Body;
   }
 
   update(keys: Keys): void {
@@ -35,31 +30,31 @@ export class Player extends Phaser.GameObjects.Rectangle {
   }
 
   inControl(): boolean {
-    return this.body.speed <= this.maxSpeed;
+    return this.bod.speed <= this.maxSpeed;
   }
 
-  applyDrag(controlledMove: Vector2): void {
+  applyDrag(controlledMove: Phaser.Math.Vector2): void {
     if (this.inControl()) {
       // If not moving, apply controlled drag
       if (controlledMove.length() === 0) {
-        const drag = this.body.velocity
+        const drag = this.bod.velocity
           .clone()
           .negate()
           .setLength(this.movSpeed);
-        if (drag.length() < this.body.velocity.length()) {
-          this.body.velocity.add(drag);
+        if (drag.length() < this.bod.velocity.length()) {
+          this.bod.velocity.add(drag);
         } else {
-          this.body.velocity.setLength(0);
+          this.bod.velocity.setLength(0);
         }
       }
     } else {
       // Apply uncontrolled drag
-      this.body.setDamping(true);
-      this.body.setDrag(0.1, NaN);
+      this.bod.setDamping(true);
+      this.bod.setDrag(0.1, NaN);
     }
   }
 
-  getControlledMove({ up, down, left, right }: Keys): Vector2 {
+  getControlledMove({ up, down, left, right }: Keys): Phaser.Math.Vector2 {
     const result = new Phaser.Math.Vector2(
       right.isDown - left.isDown,
       down.isDown - up.isDown,
@@ -68,11 +63,11 @@ export class Player extends Phaser.GameObjects.Rectangle {
     return result;
   }
 
-  applyControlledMove(controlledMove: Vector2): void {
+  applyControlledMove(controlledMove: Phaser.Math.Vector2): void {
     if (!this.inControl()) return;
 
-    this.body.velocity.add(controlledMove);
-    this.body.velocity.limit(this.maxSpeed - 1);
+    this.bod.velocity.add(controlledMove);
+    this.bod.velocity.limit(this.maxSpeed - 1);
 
     if (controlledMove.x > 0) {
       this.facingRight = true;
